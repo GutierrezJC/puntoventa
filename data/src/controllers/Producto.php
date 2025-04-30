@@ -84,9 +84,18 @@ class Producto {
             $query->bindValue($key, $value, $TIPO);
         };
 
+        try
+        {
+            $query->execute();
+            $cont->commit();
+            $status=201;
+        } catch (\PDOException $e) {
+            $status=$e.get_code()==23000 ? 409 : 500; //409 Conflicto, 500 Error interno del servidor
+            $cont->rollBack();
+        
+        }
 
-
-        $query->execute();
+       
 
         $status = $query->rowCount() > 0 ? 201 : 409; //201 Creado, 409 Conflicto
 
