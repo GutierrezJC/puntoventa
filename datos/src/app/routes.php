@@ -21,6 +21,14 @@ $app->group('/api',function(RoutecollectorProxy $api){
         $producto->get ('/filtrar',Producto::class . ":filtrar");#el metodo que esta en la clase producto3
 
     });
+
+
+    $api->group('/artefacto', function (RoutecollectorProxy $artefacto) {
+        $artefacto->get('/read[/{id}]', Artefacto::class . ":read");
+        $artefacto->post('/create', Artefacto::class . ":create");
+        $artefacto->put('/update[/{id}]', Artefacto::class . ":update");
+        $artefacto->delete('/delete/{id}', Artefacto::class . ":delete");
+    });
 });
 
 
