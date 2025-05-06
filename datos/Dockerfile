@@ -21,8 +21,8 @@ mv composer.phar /usr/local/bin/composer
 
 # esto copia el archivo de configuracion de apache y el archivo de configuracion de composer.json (al contenedor desde tu máquina local al contenedor) 
 # ademas recordar que estos archivos deben estar en la misma carpeta que el Dockerfile y ya listos para ser copiados
-COPY ./data/composer.json .
-COPY ./data/.htaccess .
+COPY ./datos/composer.json .
+COPY ./datos/.htaccess .
 
 
 # intala git y zip para poder descargar el proyecto desde github y descomprimirlo y ademas instala las dependencias de composer
